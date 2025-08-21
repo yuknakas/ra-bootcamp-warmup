@@ -16,7 +16,7 @@ df_list <-
       n_class <- ncol(df) - 2
       df <- set_names(
         df,
-        c("prefecture", "total", paste0(0:(n_class - 1), "_class"))
+        c("prefecture", "total", 0:(n_class - 1))
         )
       base_label <- 
         list(
@@ -26,11 +26,11 @@ df_list <-
       class_label <- 
         setNames(
           paste0("NO. of Schools with ", 0:(n_class - 1), " class(es)"),
-          paste0(0:(n_class - 1), "_class")
+          0:(n_class - 1)
         )
       var_label(df) <- c(base_label, class_label)
       df
       }
   )
 
-saveRDS(df_list, file = file.path(path_out, "10y_list"))
+saveRDS(df_list, file = file.path(path_out, "10y_list.rds"))

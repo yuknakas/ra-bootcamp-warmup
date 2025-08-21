@@ -28,7 +28,7 @@ df_total <- df_total %>%
     year = as.numeric(year),
   )
 
-#connecting the df, then reordring the header
+#connecting the df, then reordering the header
 df <- df_absent %>% 
   left_join(df_total, by = c("year", "prefecture")) %>% 
   select("prefecture", "year", "n_total", "n_absent") %>% 
